@@ -1,0 +1,37 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+
+	//- HTML HEADER
+	head
+		base(href='/')
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, min-width=640')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+
+		title= name
+		link(rel='shortcut icon', href='/favicon.png', type='image/png')
+
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic', rel='stylesheet')
+		link(href='/dist/vendor.css', rel='stylesheet')
+
+		!= "<!--[if lt IE 9]><script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script><script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script><![endif]-->"
+		script(src="https://cdn.rawgit.com/brendanlong/viewport-min-width-polyfill/8c6308e8/viewport-min-width.js")
+
+		//- Include template-specific stylesheets by extending the css block
+		block css
+
+		//- Add any other template-specific HEAD tags by extending the head block
+		block head
+
+	//- HTML BODY
+	body
+		block body
+
+		//- JAVASCRIPT
+		script(src='/dist/polyfills.js', defer)
+		script(src='/dist/vendor.js', defer)
+		script(src='/dist/app.js', defer)
+
+		block js

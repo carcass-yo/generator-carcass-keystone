@@ -1,0 +1,58 @@
+{
+  "name": "generator-carcass-keystone",
+  "version": "1.0.0-alpha.1",
+  "description": "Yeoman generator for Keystone.js project",
+  "homepage": "https://github.com/carcass-yo/generator-carcass-keystone",
+  "author": {
+    "name": "Constantine Karnaukhov",
+    "email": "genteelknight@gmail.com",
+    "url": "https://github.com/hustlahusky"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "keystone.js",
+    "express.js",
+    "node.js",
+    "gitlab-ci",
+    "docker"
+  ],
+  "dependencies": {
+    "async": "^2.6.0",
+    "carcass-generator": "^1.0.1",
+    "chalk": "^2.1.0",
+    "lodash": "^4.17.10",
+    "shelljs": "^0.8.1",
+    "yosay": "^2.0.1"
+  },
+  "peerDependencies": {
+    "generator-carcass-base": "^1.1.1"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^4.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "jest": "^22.4.3",
+    "jest-environment-node": "^22.4.3",
+    "nsp": "^2.6.3",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "scripts": {
+    "test": "jest --forceExit --runInBand ./tests/*",
+    "reload": "rm -rf manual_test* && mkdir -p manual_test",
+    "manual_test": "npm run reload && cd manual_test && node --inspect $(where yo) carcass-keystone"
+  },
+  "repository": "carcass-yo/generator-carcass-keystone",
+  "license": "MIT",
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "<rootDir>/generators/app/templates"
+    ],
+    "testEnvironment": "node"
+  }
+}

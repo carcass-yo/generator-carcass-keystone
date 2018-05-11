@@ -1,0 +1,7 @@
+FROM <%=appnameSlug%>:latest
+
+COPY ./package*.json /home/node/www/
+RUN npm install --only=prod && npm cache clean --force
+COPY . /home/node/www/
+RUN chown -R node.node /home/node
+USER node

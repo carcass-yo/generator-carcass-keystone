@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  web:
+    build: ./
+    image: <%=appnameSlug%>:latest
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - NODE_ENV=${NODE_ENV:-development}
+      - MONGO_URI=${MONGO_URI:-mongodb://mongo:27017/<%=appnameSlug%>}
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - NODEMAILER_SMTP_HOST=${NODEMAILER_SMTP_HOST}
+      - NODEMAILER_SMTP_PORT=${NODEMAILER_SMTP_PORT}
+      - NODEMAILER_SENDER_EMAIL=${NODEMAILER_SENDER_EMAIL}
+      - DOMAIN=${DOMAIN}
+    networks:
+      - default
+      - proxy
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    user: mongodb
+    volumes:
+      - md:/data/db
+
+volumes:
+  # mongo data. used as abbr cause https://github.com/vmware/docker-volume-vsphere/issues/1933
+  md:
+    driver: local
+
+networks:
+  proxy:
+    external: true

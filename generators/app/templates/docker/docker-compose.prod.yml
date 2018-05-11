@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile-prod
+    image: ${APP_IMAGE_NAME}
+    volumes:
+      - uploads:/home/node/www/public/uploads
+    deploy:
+      replicas: 1
+      labels:
+        - com.df.notify=true
+        - com.df.distribute=true
+        - com.df.serviceDomain=${DOMAIN}
+        - com.df.servicePath=/
+        - com.df.port=3000
+
+  mongo:
+    deploy:
+      replicas: 1
+
+volumes:
+  md:
+    driver: vsphere
+    driver_opts:
+      size: 500mb
+
+  uploads:
+    driver: vsphere
+    driver_opts:
+      size: 1gb
