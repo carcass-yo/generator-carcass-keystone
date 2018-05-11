@@ -1,6 +1,6 @@
 {
   "name": "generator-carcass-keystone",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Yeoman generator for Keystone.js project",
   "homepage": "https://github.com/carcass-yo/generator-carcass-keystone",
   "author": {
