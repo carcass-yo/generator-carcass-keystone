@@ -120,7 +120,7 @@ class CarcassGeneratorKeystone extends Carcass {
         pug: '2.0.0-rc.4',
         request: '^2.85.0',
         'request-promise-native': '^1.0.5',
-        underscore: '^1.8.3',
+        lodash: '^4.17.10',
         xss: '^0.3.4',
         yargs: '^8.0.2',
       },

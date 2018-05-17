@@ -1,5 +1,5 @@
 const keystone = require('keystone');
-const _ = require('underscore');
+const _ = require('lodash');
 const path = require('path');
 const mongoose = require('./mongoose');
 
@@ -43,7 +43,7 @@ keystone.init({
 /** Extend keystone utils module with custom util functions */
 Object.assign(keystone.utils, keystone.importer(__dirname)('./utils'));
 
-require('./createLoggers')<% if (international) { %>
+require('./createLoggers');<% if (international) { %>
 require('./translations');<% } %>
 
 /** Set locals for pug templates */

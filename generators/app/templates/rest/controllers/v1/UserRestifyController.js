@@ -1,7 +1,7 @@
 const keystone = require('keystone');
 const restify = require('express-restify-mongoose');
 const restifyConfig = require('../../lib/restifyConfig');
-const _ = require('underscore');
+const _ = require('lodash');
 
 const UserModel = keystone.list('User').model;
 const router = keystone.createRouter();

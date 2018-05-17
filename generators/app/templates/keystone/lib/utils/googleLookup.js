@@ -1,6 +1,6 @@
 const keystone = require('keystone');
 const request = require('request-promise-native');
-const _ = require('underscore');
+const _ = require('lodash');
 
 /**
  * Lookup geo data by address or coordinates from Google Maps Geocode API
@@ -25,7 +25,7 @@ async function googleLookup(path, _options = {}) {
     key: keystone.get('google server api key'),
     language: 'ru',
   }, _options);
-  options = _.pick(options, 'key', 'language', 'region', 'bounds');
+  options = _.pick(options, ['key', 'language', 'region', 'bounds']);
 
   if (serializedAddress.length > 0) {
     options.address = serializedAddress;

@@ -3,7 +3,7 @@
  */
 const mongoose = require('mongoose');
 const keystone = require('keystone');
-const _ = require('underscore');
+const _ = require('lodash');
 const Model = require('mongoose/lib/model');
 
 // Extend Model prototype for often used actions
@@ -27,7 +27,7 @@ Model.prototype.getApiFields = function () {
 };
 
 Model.prototype.pickApiFields = function () {
-  return _.pick(this, ...this.getApiFields());
+  return _.pick(this, this.getApiFields());
 };
 
 Model.prototype.prepareApiOutput = async function (locale) {
@@ -90,7 +90,7 @@ Model.prototype.translate = async function (locale) {
   }).exec();
 
   // Return only API fields
-  return _.pick(translation, ...this.getApiFields());
+  return _.pick(translation, this.getApiFields());
 };
 
 // Enable native promises for mongoose.Promise
