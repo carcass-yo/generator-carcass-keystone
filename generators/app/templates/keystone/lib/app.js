@@ -6,10 +6,10 @@ const mongoose = require('./mongoose');
 /** Initialise Keystone with project's configuration */
 keystone.init({
   mongoose,
-  name: 'Энерго-Сервис-Строй',
-  brand: '545-1-DEV',
+  name: '<%=appname%>',
+  brand: '<%=appnameSlug%>',
   port: process.env.PORT || 3000,
-  mongo: process.env.MONGO_URI || 'mongodb://localhost/545-1-DEV',
+  mongo: process.env.MONGO_URI || 'mongodb://localhost/<%=appnameSlug%>',
   static: 'public',
   favicon: 'public/favicon.png',
   views: 'templates/views',
