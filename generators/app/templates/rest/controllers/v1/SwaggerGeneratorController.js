@@ -7,8 +7,7 @@ const options = {
   swaggerDefinition: {
     info: {
       version: '1.0.0',
-      title: '545-1-DEV',
-      description: 'Проект "Зерно"',
+      title: keystone.get('name'),
     },
     schemes: [
       'http',
