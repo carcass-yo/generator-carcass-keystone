@@ -42,13 +42,13 @@ Page.add({
     },
   },
 });
-
+<% if (international) { %>
 Page.relationship({
   ref: 'PageTranslation',
   path: 'page-translations',
   refPath: 'page',
 });
-
+<% } %>
 Page.navSection = 'cms';
 Page.defaultColumns = 'name, code';
 Page.register();
