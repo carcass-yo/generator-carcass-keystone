@@ -177,6 +177,14 @@ class CarcassGeneratorKeystone extends Carcass {
           test: 'jest --forceExit --runInBand ./tests/*',
         },
       });
+
+      this.fs.copyTpl(
+        this.templatePath('jest'),
+        this.destinationPath('.'),
+        this.options,
+        {},
+        { globOptions: { dot: true } },
+      );
     }
 
     /**
