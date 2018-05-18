@@ -1,20 +1,20 @@
 /**
  * Custom error handler
  */
-const keystone = require('keystone');
-const AuthenticationError = require('passport/lib/errors/authenticationerror');
+const keystone = require('keystone');<% if (passport) { %>
+const AuthenticationError = require('passport/lib/errors/authenticationerror');<% } %>
 
 const { SIGN_IN_ERROR } = keystone.get('errors');
 
 module.exports = () => {
   keystone.set('500', (err, req, res) => {
-    let error = err;
+    let error = err;<% if (passport) { %>
 
     // Switch Passport.js AuthenticationError to SIGN_IN_ERROR
     if (err instanceof AuthenticationError) {
       error = new SIGN_IN_ERROR(req.session.messages[0], 401);
     }
-
+<% } %>
     const key = error.constructor.name;
     const msg = error.message;
     let { code } = error;
